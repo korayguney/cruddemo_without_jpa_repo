@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
-public class EmployeeRestController {
+@RequestMapping("/api/jpa")
+public class EmployeeRestControllerJPA {
 
     @Autowired
-    @Qualifier("employeeDAOHibernateImpl")
+    @Qualifier("employeeDAOJpaImpl")
     private EmployeeDAO employeeDAO;
 
     @GetMapping("/employees")

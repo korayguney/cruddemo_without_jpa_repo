@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Repository
+@Repository("employeeDAOHibernateImpl")
 public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
     private EntityManager entityManager;
