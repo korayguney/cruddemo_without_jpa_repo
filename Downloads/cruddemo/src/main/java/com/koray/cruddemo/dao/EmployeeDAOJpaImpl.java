@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository("employeeDAOJpaImpl")
@@ -28,13 +29,14 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO {
     }
 
     @Override
+    @Transactional
     public void save(Employee employee) {
         entityManager.persist(employee);
     }
 
     @Override
+    @Transactional
     public void deleteById(int id) {
-        findById(id);
-        entityManager.remove(findById(id).getId());
+        entityManager.remove(findById(id));
     }
 }
