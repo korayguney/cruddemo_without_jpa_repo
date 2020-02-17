@@ -25,12 +25,12 @@ public class EmployeeRestControllerJPARepository {
     }
 
     @GetMapping("/employee/{id}")
-    public Optional<Employee> findById(@PathVariable int id) {
+    public Employee findById(@PathVariable int id) {
 
         Optional<Employee> employee = employeeJpaRepository.findById(id);
 
-        if (employee != null)
-            return employee;
+        if (employee.isPresent())
+            return employee.get();
         else
             throw new IllegalArgumentException("The User with the ID : " + id + " is NOT exist!");
     }
